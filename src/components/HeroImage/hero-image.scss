@@ -1,0 +1,62 @@
+@import "styles/main.scss";
+
+.hero__section {
+    position: relative;
+    background-color: $grey;
+    display: inline-block;
+    margin-top: pxToEm(80);
+
+    @include tablet {
+        margin-top: 0;
+    }
+
+	.hero__img {
+        object-fit: cover;
+        width: 100%;
+        height: pxToEm(450);
+        filter: brightness(75%);
+
+        @include tablet {
+            top: 0;
+            height: pxToEm(800);
+        }
+	}
+
+	.title {
+		color: $white;
+    }
+
+    svg {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        max-width: 100%;
+        left: 0;
+    }
+}
+
+.hero__copy {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+    
+    @include tablet {
+        top: 45%;
+        max-width: $container-width;
+    }
+
+    span {
+        font-size: pxToEm(20);
+        font-weight: 400;
+
+        @include tablet {
+            font-size: pxToEm(25);
+            margin-top: 0;
+        }
+    }
+}

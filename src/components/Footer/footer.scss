@@ -1,0 +1,78 @@
+@import "styles/main.scss";
+
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.footer__section {
+	font-family: $primary-font;
+    background-color: $black;
+    padding-bottom: pxToEm(20);
+
+    @include tablet {
+        padding-bottom: pxToEm(60);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .footer__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            font-family: $secondary-font;
+            padding-bottom: pxToEm(10);
+            font-weight: 700;
+            color: $white;
+            font-size: pxToEm(20);
+        }
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        .social-media-icons {
+            margin: 0 auto;
+            display: flex;
+
+            a {
+                color: $white;
+                font-size: pxToEm(40);
+                height: 40px;
+                width: 40px;
+                outline: 2px solid transparent;
+
+                &:hover {
+                    color: $yellow;
+                    transition: all 0.2s ease-in;
+                }
+                
+                @include focus-state($yellow);
+
+                &:not(:first-of-type) {
+                    margin-left: pxToEm(5);
+                }
+            }
+        }
+	}
+	
+	.footer__copyright {
+        color: $white;
+        font-family: $secondary-font;
+		font-size: pxToEm(12);
+        text-align: center;
+        width: 100%;
+        padding-top: pxToEm(20);
+
+        @include tablet {
+            margin-top: pxToEm(5);
+            width: 50%;
+            padding-top: 0;
+        }
+	}
+}

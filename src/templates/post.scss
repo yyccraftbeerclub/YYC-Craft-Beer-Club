@@ -1,0 +1,132 @@
+@import "styles/main.scss";
+
+.post__section {
+	color: $black;
+	padding-left: pxToEm(10);
+	padding-right: pxToEm(10);
+
+	.post__publish-date {
+		font-size: pxToEm(12);
+		text-align: center;
+		padding: pxToEm(5) pxToEm(10);
+		width: max-content;
+		margin: 0 auto pxToEm(20) auto;
+		font-weight: 700;
+		background-color: $black;
+		color: $white;
+		border-radius: 4px;
+		font-family: $secondary-font;
+	}
+	
+	.post__copy {
+		max-width: $container-width;
+		margin: 0 auto;
+		line-height: 1.5em;
+
+		.content,
+		.post__gallery {
+			@include tablet {
+				padding: 0 pxToEm(40) pxToEm(40) pxToEm(40);
+			}
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			padding: pxToEm(10) 0;
+		}
+
+		.post__video {
+			padding: 0 0 pxToEm(40) 0;
+
+			iframe {
+				margin: 0 auto;
+				display: block;
+			}
+		}
+
+		.author {
+			text-align: right;
+			font-size: pxToEm(11);
+			font-weight: 700;
+			font-style: italic;
+			&:before {
+				content: "- ";
+			}
+			
+			@include tablet {
+				max-width: inherit;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.post__gallery-img {
+		margin: 0 auto pxToEm(20) auto;
+		display: block;
+	}
+
+	.pagination {
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		padding: pxToEm(20) 0;
+
+		@include tablet {
+			max-width: $container-width;
+			padding-bottom: pxToEm(65);
+			padding-top: pxToEm(40);
+		}
+
+		.prev-post,
+		.next-post {
+				color: $black;
+				margin: 0;
+				transition: all 0.2s ease-in;
+				outline: 2px solid transparent;
+				text-decoration: none;
+
+				@include tablet {
+					font-size: pxToEm(20);
+					margin: pxToEm(5) pxToEm(15) 0 pxToEm(15);
+				}
+
+				&:hover {
+					color: $yellow;
+				}
+
+				@include focus-state($yellow);
+
+			.post-name {
+				font-family: $secondary-font;
+				font-weight: 700;
+				display: flex;
+				font-size: pxToEm(14);
+
+				@include tablet {
+					font-size: inherit;
+				}
+			}
+		}
+	}
+
+	.share-icons {
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: pxToEm(20) 0;
+		text-align: center;
+
+		p {
+			margin-bottom: pxToEm(10);
+			font-size: pxToEm(14);
+		}
+	}
+
+	.post-bottom {
+		max-width: $container-width;
+		border-top: 2px solid $black;
+		margin: 0 auto;
+		display: block;
+	}
+}

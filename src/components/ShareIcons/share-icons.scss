@@ -1,0 +1,22 @@
+@import "styles/main.scss";
+
+.react-share__ShareButton {
+	@include focus-state($yellow);
+
+    &:not(:last-of-type) {
+        margin-right: pxToEm(10);
+	}
+	
+	&:hover {
+		.icon {
+			rect {
+				fill: $yellow;
+			}
+		}
+	} 
+}
+
+.icon rect {
+	transition: all 0.2s ease-in;
+    fill: $black;
+}

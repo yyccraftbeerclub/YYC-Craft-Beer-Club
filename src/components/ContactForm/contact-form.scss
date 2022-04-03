@@ -1,0 +1,77 @@
+@import "styles/main.scss";
+
+.contact-us__wrapper {
+    color: $black;
+
+    .submit-success,
+    .submit-error {
+        color: $black;
+        padding: pxToEm(10);
+        margin-top: pxToEm(10);
+    }
+
+    .submit-success {
+        background-color: $green;
+    }
+
+    .submit-error {
+        background-color: $red;
+    }
+
+    .contact-us-form {
+        box-shadow: 0 15px 35px rgba(50, 50, 90, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+        border-radius: pxToEm(4);
+        padding: pxToEm(20);
+        margin: 0 auto;
+
+        @include tablet {
+            max-width: pxToEm(500);
+        }
+
+        .form-instructions {
+            font-size: pxToEm(12);
+        }
+    
+        .form-group {
+            padding-bottom: pxToEm(10);
+    
+            label, input, textarea {
+                box-sizing: border-box;
+                font-family: $secondary-font;
+                max-width: 100%;
+                color: $black;
+                display: block;
+                width: 100%;
+                font-weight: 400;
+                padding-right: pxToEm(10);
+                font-size: pxToEm(14);
+            }
+    
+            label {
+                padding: pxToEm(10) pxToEm(10) pxToEm(10) 0;
+                font-weight: 600;
+            }
+    
+            input, textarea {
+                padding: pxToEm(15);
+                border: 2px solid $black;
+                border-radius: pxToEm(4);
+                color: $black;
+                
+                @include focus-state($yellow);
+            }
+        }
+        
+        .btn {
+            margin-top: pxToEm(20);
+        }
+
+        .optional::after {
+            content: '- Optional';
+            color: $darkGrey;
+            font-size: pxToEm(12);
+            padding-left: pxToEm(5);
+            margin-top: pxToEm(2);
+        }
+    }
+}

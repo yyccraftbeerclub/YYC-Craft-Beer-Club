@@ -1,0 +1,286 @@
+@import "styles/main.scss";
+
+.nav__section {
+    max-width: pxToEm(1500);
+    background-color: $black;
+    
+    nav {
+        transition: all 0.3s ease-in;
+        font-size: pxToEm(10);
+        text-transform: lowercase;
+        font-family: $primary-font;
+        letter-spacing: pxToEm(2);
+        
+        a {
+            text-decoration: none;
+            cursor: pointer;
+
+            @include focus-state($yellow);
+
+            &:focus {
+                outline-offset: -2px;
+            }
+        }
+
+        .nav__item {
+            margin: 0 pxToEm(15);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: pxToEm(15);
+            outline: 2px solid transparent;
+
+            &:hover {
+                color: $yellow;
+            }
+
+            @include focus-state($yellow);
+        }
+
+        .nav__item-last {
+            background-color: transparent;
+            color: $white;
+            padding: pxToEm(15) pxToEm(25);
+            border-radius: pxToEm(4);
+            border: 2px solid $white;
+            margin-left: pxToEm(15);
+            margin-right: pxToEm(15);
+            margin-top: pxToEm(10);
+            font-size: pxToEm(18);
+            transition: all 0.2s ease-in;
+
+            &:hover,
+            &:focus {
+                @include hover-shadow($white, $white);
+            }
+        }
+    }
+
+    .mobile-only {
+        width: 100%;
+        height: 80px;
+        position: fixed;
+        z-index: 999;
+        background-color: $black;
+
+        #react-burger-menu-btn {
+            @include focus-state($yellow);
+        }
+
+		.bm-burger-button {
+			position: fixed;
+			width: 25px;
+			height: 20px;
+			right: 20px;
+            top: 30px;
+		}
+
+		.bm-burger-bars {
+			background: $white;
+		}
+
+		.bm-burger-bars-hover {
+			background: $white;
+		}
+
+		.bm-cross-button {
+            width: 50px !important;
+            top: 25px !important;
+            right: 25px !important;
+            height: 30px !important;
+
+            @include focus-state($yellow);
+		}
+
+		.bm-cross {
+			background: $white;
+		}
+
+		.bm-menu {
+            background: $black;
+			padding: 2.5em 1.5em 0;
+			font-size: 1.15em;
+		}
+
+		.bm-item-list {
+			&:focus {
+                outline: none;
+            }
+		}
+
+		.bm-item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+
+            &:focus {
+                outline: none;
+            }
+		}
+
+		.bm-overlay {
+            background: rgba(0, 0, 0, 0.3);
+            top: 0;
+        }
+
+        .bm-menu-wrap {
+            top: 0;
+        }
+        
+        .item {
+            justify-content: space-between;
+            text-decoration: none;
+            padding: pxToEm(15) pxToEm(20);
+        }
+
+        a {
+            .logo {
+                max-width: pxToEm(90);
+                max-height: pxToEm(60);
+                margin-top: pxToEm(10);
+                padding-top: pxToEm(5);
+                padding-left: pxToEm(5);
+                margin: 0 auto;
+                margin-left: pxToEm(9);
+
+                // outline: 2px solid transparent;
+
+                @include focus-state($yellow);
+            }
+        }
+
+        .nav__item {
+            padding: pxToEm(7);
+            display: flex;
+            flex-direction: column;
+            color: $white;
+            font-size: pxToEm(35);
+            font-weight: 700;
+            background-color: transparent;
+            margin-top: pxToEm(5);
+
+            &:hover {
+                text-decoration: underline;
+                text-shadow: none;
+            }
+        }
+
+        .mobile-last {
+            background-color: $white;
+            color: $black;
+            padding-bottom: pxToEm(9);
+            border-radius: pxToEm(4);
+            @include focus-state($yellow);
+            transition: all 0.2s ease-in;
+
+            &:hover {
+                background-color: transparent;
+                color: $white;
+                text-decoration: none;
+            }
+        }
+
+	  @include tabletCustom { 
+        display: none; 
+	  } 
+    }
+
+	.desktop-only { 
+        font-size: 1.5em;
+        text-align: right;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        max-width: pxToEm(1500);
+        
+        nav {
+            max-width: pxToEm(1600);
+            background-color: transparent;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+
+            &.dark-theme {
+                background-color: $black;
+
+                .nav__item {
+                    color: $white;
+                    font-size: pxToEm(18);
+                    transition: all 0.2s ease-in;
+                    outline: 2px solid transparent;
+
+                    &.active {
+                        font-weight: 700;
+                    }
+
+                    &:hover {
+                        color: $yellow;
+                    }
+
+                    @include focus-state($yellow);
+                }
+
+                .logo {
+                    max-height: 110px;
+                    max-width: 110px;
+                    transition: all 0.3s ease-in;
+                    transition-timing-function: ease;
+                    outline: 2px solid transparent;
+
+                    @include focus-state($yellow);
+                }
+            }
+        }
+
+        .links {
+            position: absolute;
+            font-family: $secondary-font;
+            font-weight: 700;
+            right: 10px;
+            margin-top: pxToEm(-10);
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav__item {
+            color: $white;
+            font-size: pxToEm(18);
+            outline: 2px solid transparent;
+            transition: all 0.2s ease-in;
+
+            &.active {
+                font-weight: 700;
+            }
+            
+            &::after {
+                border-bottom: 2px solid $white;
+            }
+        }
+        
+        a {
+            margin-left: pxToEm(9);
+            margin-top: pxToEm(9);
+
+            .logo {
+                max-width: pxToEm(150);
+                max-height: pxToEm(150);
+                width: 100%;
+                height: 100%;
+                transition: all 0.3s ease-in;
+
+                @include focus-state($yellow);
+            }
+        }
+
+        @include mobileMenu { 
+            display: none; 
+        } 
+	}
+}

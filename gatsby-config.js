@@ -1,29 +1,39 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
-    title: "YYC Craft Beer Club",
+    siteUrl: `https://yyccraftbeerclub.com`,
   },
   plugins: [
     {
       resolve: "gatsby-source-datocms",
       options: {
-        apiToken: "cc753b44380e571f9b2f33db7190da",
+        apiToken: process.env.DATO_API_TOKEN,
       },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100
+      }
+    },
+    {
+			resolve: "gatsby-plugin-root-import",
+			options: {
+				src: path.join(__dirname, 'src'),
+				pages: path.join(__dirname, 'src/pages'),
+				component: path.join(__dirname, 'src/components'),
+				styles: path.join(__dirname, "src/styles"),
+				layout: path.join(__dirname, "src/layouts"),
+				utils: path.join(__dirname, "src/styles/utils")
+			}
     },
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "",
-      },
-    },
     "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "src/images/icon.png",
-      },
-    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -34,5 +44,55 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+			resolve: "gatsby-transformer-remark",
+			options: {
+				plugins: [
+					`gatsby-plugin-minify`,
+					{
+						resolve: `gatsby-remark-images-datocms`,
+						options: {
+							apiToken: process.env.DATO_API_TOKEN,
+						},
+					},
+					{
+						resolve: `gatsby-plugin-offline`,
+						options: {
+						  precachePages: [`/`, `/blog/*`],
+						},
+					},
+				]
+			},
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.svg$/
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://yyccraftbeerclub.com',
+        env: {
+          development: {
+            policy: [{ userAgent: '*', disallow: ['/'] }]
+          },
+          production: {
+            policy: [{ userAgent: '*', allow: '/' }]
+          }
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-source-meetup-events',
+      options: {
+          groupId: `Calgary-Craft-Beer-Club`,
+      },
+  },
+    "gatsby-remark-images-datocms",
+    "gatsby-plugin-sitemap"
   ],
 };

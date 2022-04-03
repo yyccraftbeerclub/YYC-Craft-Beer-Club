@@ -1,0 +1,230 @@
+@import "styles/main.scss";
+
+* {
+	padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    color: $black;
+}
+
+.layout__section {
+    display: flex; 
+    flex-direction: column; 
+    margin: 0 auto; 
+    max-width: pxToEm(1120);
+    letter-spacing: pxToEm(0.5);
+    font-family: $primary-font;
+
+    img {
+        width: 100%;
+    }
+
+    @include mobile {
+        max-width: pxToEm(1500);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+    }
+
+    h1 {
+        font-family: $secondary-font;
+        font-size: pxToEm(42);
+        font-weight: 700;
+        letter-spacing: pxToEm(0.5);
+
+        @include tablet {
+            font-size: pxToEm(75);
+        }
+
+        @include desktop {
+            font-size: pxToEm(90);
+        }
+    }
+
+    h2 {
+        font-family: $secondary-font;
+        font-size: pxToEm(30);
+        font-weight: 600;
+
+        @include tablet {
+            font-size: pxToEm(40);
+        }
+
+        @include desktop {
+            font-size: pxToEm(55);
+        }
+    }
+
+    h3 {
+        font-family: $secondary-font;
+        font-size: pxToEm(20);
+        letter-spacing: pxToEm(1);
+        font-weight: 700;
+    }
+
+    p {
+        font-family: $primary-font;
+        line-height: pxToEm(30);
+        padding-top: pxToEm(5);
+
+        @include tablet {
+            font-size: pxToEm(16);
+        }
+  
+        a {
+            color: $black;
+            font-weight: 700;
+            background-color: transparent;
+            font-style: italic;
+            transition: 0.2s ease-in-out;
+            
+            &:hover {
+                color: $yellow;
+            }
+
+            @include focus-state($yellow);
+        }
+    }
+
+    span {
+        font-family: $primary-font;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        font-size: pxToEm(18);
+
+        @include tablet {
+            font-size: pxToEm(22);
+        }
+    }
+
+    .btn {
+        font-family: $secondary-font;
+        font-size: pxToEm(14);
+        padding: pxToEm(15) pxToEm(25);
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        border-radius: pxToEm(4);
+        display: flex;
+        align-items: center;
+        letter-spacing: pxToEm(2);
+        transition: all 0.2s ease-in;
+
+        svg {
+            margin-left: pxToEm(10);
+            font-size: pxToEm(20);
+        }
+
+        &:hover,
+        &:focus {
+            svg {
+                transition: all 0.2s ease-in;
+                transform: translateX(50%);
+            }
+        }
+    }
+
+    .btn-primary {
+        color: $black;
+        background-color: $white;
+        border: 2px solid $black;
+
+        &:hover,
+        &:focus {
+            @include hover-shadow($black, $black);
+        }
+    }
+
+    .btn-navigation {
+        border: none;
+        font-size: pxToEm(20);
+        cursor: pointer;
+        color: $black;
+        background-color: $white;
+        border: 2px solid $black;
+        border-radius: pxToEm(4);
+        padding: pxToEm(10) pxToEm(15);
+        transition: all 0.2s ease-in;
+
+        svg {
+            font-size: pxToEm(20);
+        }
+
+        &:hover,
+        &:focus {
+            @include hover-shadow($black, $black);
+        }
+    }
+
+    .btn-secondary {
+        color: $white;
+        background-color: transparent;
+        border: 2px solid $white;
+        padding: pxToEm(15) pxToEm(25);
+        border-radius: pxToEm(4);
+        font-size: pxToEm(18);
+
+        &:hover,
+        &:focus {
+            @include hover-shadow($white, $white);
+        }
+    }
+
+    blockquote {
+        display: flex;
+        margin-top: pxToEm(20);
+        
+        &::before,
+        &::after {
+            color: $black;
+            // font-family: 'Spirax', cursive;
+            font-family: $secondary-font;
+            font-size: pxToEm(100);
+            display: none;
+            display: flex;
+            align-items: center;
+            margin-top: pxToEm(10);
+        }
+
+        &::before {
+            content: '“';
+        }
+
+        &::after {
+            content: '”';           
+        }
+
+        p {
+            font-weight: 300;
+            font-style: italic;
+            font-size: pxToEm(16);
+            width: 100%;
+            padding: pxToEm(10) pxToEm(10) pxToEm(10) pxToEm(16);
+
+            @include tablet {
+				max-width: pxToEm(600);
+                margin: 0 auto;
+                font-size: pxToEm(20);
+			}
+        }
+    }
+
+    ul, ol {
+        padding-left: pxToEm(40);
+        font-size: pxToEm(14);
+        padding-top: pxToEm(20);
+
+        @include tablet {
+            padding-top: 0;
+        }
+    }
+}

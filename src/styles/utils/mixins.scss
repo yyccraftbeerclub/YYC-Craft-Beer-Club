@@ -1,0 +1,45 @@
+@mixin mobile {
+    @media (min-width: 320px) { @content; }
+}
+@mixin tablet {
+    @media (min-width: 768px) { @content; }
+}
+
+@mixin tabletCustom { 
+    //menu
+    @media (min-width: 889px) { @content; }
+}
+
+@mixin desktop {
+    //1200px
+    @media (min-width: 1024px) { @content; }
+}
+@mixin mobileMenu { 
+    //menu
+    @media (max-width: 890px) { @content; }
+}
+
+@function pxToEm($size, $base: 16) {
+  @return #{$size/$base}em;
+}
+
+@mixin hover-zoom {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+@mixin hover-shadow($shadowColor, $border) {
+    border: 2px solid $border;
+    color: $shadowColor;
+    box-shadow: -5px 8px 0 0 $shadowColor;
+    transform: translate(8px, -8px);
+    outline: none;
+}
+
+@mixin focus-state($color) {
+    &:focus {
+        transition: none;
+        outline: 2px solid $color;
+        outline-offset: 1px;
+    }
+}
