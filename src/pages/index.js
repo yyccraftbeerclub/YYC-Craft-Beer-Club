@@ -16,14 +16,13 @@ import Slide from 'react-reveal/Slide';
 import "styles/index.scss";	
 
 const Home = ({data}) => {
-		const [isNotMobile, setIsNotMobile] = useState(window.innerWidth < 767);
+	const [isNotMobile, setIsNotMobile] = useState(0);
 		
-		useEffect(() => {
-			if(typeof window !== `undefined`) {
-				window.addEventListener("resize", setIsNotMobile(window.innerWidth > 767));
-				return () => window.removeEventListener("resize", setIsNotMobile(window.innerWidth > 767));
-			}
-		}, []);
+	useEffect(() => {
+		setIsNotMobile(window.innerWidth < 767);
+		window.addEventListener("resize", setIsNotMobile(window.innerWidth > 767));
+		return () => window.removeEventListener("resize", setIsNotMobile(window.innerWidth > 767));
+	}, []);
 
 	return (
 	<>
