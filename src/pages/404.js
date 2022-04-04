@@ -14,7 +14,7 @@ const PageNotFound = ({data}) => {
 			<HeroImage title={data.datoCmsPageNotFound.title} image={ getImage(data.datoCmsPageNotFound.heroImage.gatsbyImageData) } alt={data.datoCmsPageNotFound.heroImage.alt} />
 			<section className="page-not-found__section">
 				<div className="copy">
-					<div dangerouslySetInnerHTML={{ __html: data.datoCmsPageNotFound.copyNode.childMarkdownRemark.html }}></div>
+					<p dangerouslySetInnerHTML={{ __html: data.datoCmsPageNotFound.notFoundCopyNode.childMarkdownRemark.html }} />
 				</div>
 			</section>
 		</Layout>
@@ -25,23 +25,23 @@ export default PageNotFound
 
 export const query = graphql`
 query PageNotFound {
-    datoCmsFaviconMetaTags {
+  datoCmsFaviconMetaTags {
+    tags
+  }
+  datoCmsPageNotFound {
+    seoMetaTags {
       tags
     }
-    datoCmsPageNotFound {
-      seoMetaTags {
-        tags
-      }
-      title
-      copyNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-      heroImage {
-        alt
-        gatsbyImageData
+    title
+    heroImage {
+      alt
+      gatsbyImageData
+    }
+    notFoundCopyNode {
+      childMarkdownRemark {
+        html
       }
     }
   }
+}
 `

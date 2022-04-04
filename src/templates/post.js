@@ -11,9 +11,8 @@ import './post.scss';
 
 const BlogPost = ({data, pageContext}) => {
 	const { next, previous } = pageContext;
-
 	const title = `Read ${data.datoCmsPost.title}`;
-	const url = window.location + data.datoCmsPost.slug;
+	const url = typeof window !== `undefined` ? window.location + data.datoCmsPost.slug : null
 
 	return(
 		<Layout>
@@ -21,7 +20,7 @@ const BlogPost = ({data, pageContext}) => {
 			<HeroImage title={data.datoCmsPost.title} image={getImage(data.datoCmsPost.coverImage.gatsbyImageData)} alt={data.datoCmsPost.coverImage.alt} />
 			<section className="post__section" role="main">
 				<div className="post__copy">
-					<div className="post__publish-date">Posted on {data.datoCmsPost.postedOn}</div>
+					<div className="post__publish-date">{data.datoCmsPost.postedOnText} {data.datoCmsPost.postedOn}</div>
 					<div className="content" dangerouslySetInnerHTML={{ __html: data.datoCmsPost.copyNode.childMarkdownRemark.html }} />
 					{ data.datoCmsPost.gallery.length > 0 ? 
 						<div className="post__gallery">
@@ -64,9 +63,9 @@ const BlogPost = ({data, pageContext}) => {
 export default BlogPost
 
 export const query = graphql`
-query Post($slug: String!) {
+query PostPost($slug: String!) {
 	datoCmsFaviconMetaTags {
-		tags
+	  tags
 	}
 	datoCmsPost(slug: { eq: $slug }) {
 	  title
@@ -94,6 +93,7 @@ query Post($slug: String!) {
 		height
 		thumbnailUrl
 	  }
+	  postedOnText
 	}
-  }
+  }  
 `
