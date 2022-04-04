@@ -16,7 +16,7 @@ import Slide from 'react-reveal/Slide';
 import "styles/index.scss";	
 
 const Home = ({data}) => {
-		const [isNotMobile, setIsNotMobile] = useState(typeof window !== `undefined` ? window.innerWidth < 767 : null);
+		const [isNotMobile, setIsNotMobile] = useState(window.innerWidth < 767);
 		
 		useEffect(() => {
 			if(typeof window !== `undefined`) {
