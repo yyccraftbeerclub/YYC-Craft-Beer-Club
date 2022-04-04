@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from 'gatsby';
 import { getImage } from "gatsby-plugin-image";
 import HeroImage from 'component/HeroImage/HeroImage';
@@ -11,6 +11,15 @@ import Slide from 'react-reveal/Slide';
 import "styles/events.scss";	
 
 const Events = ({data}) => {
+	const [isNotMobile, setIsNotMobile] = useState(typeof window !== `undefined` ? window.innerWidth < 767 : null);
+		
+	useEffect(() => {
+		if(typeof window !== `undefined`) {
+			window.addEventListener("resize", setIsNotMobile(window.innerWidth > 767));
+			return () => window.removeEventListener("resize", setIsNotMobile(window.innerWidth > 767));
+		}
+	}, []);
+
 	return (
 		<Layout>
 			<Seo favicon={data.datoCmsFaviconMetaTags} seoInfo={data.datoCmsEvent.seoMetaTags}/>

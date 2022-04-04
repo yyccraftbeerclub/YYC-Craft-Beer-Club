@@ -75,7 +75,6 @@ const Home = ({data}) => {
 							<Slide bottom>
 								<ContactForm fieldName={data.datoCmsHomepage.contactNameField} submitMsgSuccess={data.datoCmsHomepage.formSubmissionSuccessMessage} fieldEmail={data.datoCmsHomepage.contactEmailField} fieldMessage={data.datoCmsHomepage.contactMessageField} submitBtn={data.datoCmsHomepage.submitButtonText} formInstructions={data.datoCmsHomepage.contactFormInstructions} socialMediaLinks={data.allDatoCmsSocialMediaProfile.edges} />
 							</Slide>
-							
 						</div>
 					</section>
 				</div>
@@ -86,7 +85,7 @@ const Home = ({data}) => {
 				<HeroImage title={data.datoCmsHomepage.heroTitle} image={getImage(data.datoCmsHomepage.heroImage.gatsbyImageData)} alt={data.datoCmsHomepage.heroImage.alt} />
 				<div role="main">
 					<section id="about" className="section__intro">
-						<Fade left>
+						<Fade>
 							<div className="copy">
 								<div dangerouslySetInnerHTML={{ __html: data.datoCmsHomepage.aboutUsCopyNode.childMarkdownRemark.html }} />
 							</div>
@@ -102,13 +101,13 @@ const Home = ({data}) => {
 						<BannerTop />
 						<div className="wrapper">
 							<section className="section__join" id="join">
-								<Fade right>
+								<Fade>
 									<div>
 										<div dangerouslySetInnerHTML={{ __html: data.datoCmsHomepage.joinCopyNode.childMarkdownRemark.html }} />
 										{ data.datoCmsHomepage.joinCtaLink ? <a href={data.datoCmsHomepage.joinCtaLink} className="btn btn-secondary" target="_blank" rel="noreferrer">{data.datoCmsHomepage.joinCtaText} <IoIosArrowForward /></a> : null }
 									</div>
+									<BackgroundBeer/>
 								</Fade>
-								<BackgroundBeer/>
 							</section>
 						</div>
 						<BannerBottom />
@@ -118,9 +117,9 @@ const Home = ({data}) => {
 							<div dangerouslySetInnerHTML={{ __html: data.datoCmsHomepage.contactCopyNode.childMarkdownRemark.html }}/>
 						</div>
 						<div className="content wrapper">
-							<Slide bottom>
+							<Fade>
 								<ContactForm fieldName={data.datoCmsHomepage.contactNameField} submitMsgSuccess={data.datoCmsHomepage.formSubmissionSuccessMessage} fieldEmail={data.datoCmsHomepage.contactEmailField} fieldMessage={data.datoCmsHomepage.contactMessageField} submitBtn={data.datoCmsHomepage.submitButtonText} formInstructions={data.datoCmsHomepage.contactFormInstructions} socialMediaLinks={data.allDatoCmsSocialMediaProfile.edges} />
-							</Slide>
+							</Fade>
 						</div>
 					</section>
 				</div>

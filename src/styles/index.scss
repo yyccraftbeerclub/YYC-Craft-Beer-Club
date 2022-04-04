@@ -52,6 +52,11 @@
 
     a {
         width: fit-content;
+        margin-bottom: pxToEm(20);
+
+        @include tablet {
+            margin-bottom: 0;
+        }
     }
 
     @include tablet {
@@ -116,8 +121,6 @@
     .slider {
         @include focus-state($yellow);
         .slider-frame .slider-list .slider-slide {
-
-            min-height: 100%;
             .carousel-img {
                 @include focus-state($yellow);
                 &:focus {
@@ -197,7 +200,6 @@
         color: $black;
 
         @include tablet {
-            padding-right: pxToEm(40);
             width: 45%;
         }
     }

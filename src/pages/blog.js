@@ -7,6 +7,7 @@ import Layout from 'layout/Layout';
 import Masonry from 'react-masonry-css';
 import Seo from 'component/Seo/Seo';
 import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 import 'styles/blog.scss';
 
 const Blog = () => {
@@ -64,7 +65,7 @@ const Blog = () => {
 				<section className="blog__section" role="main">
 					<div className="blog__card-wrapper">
 						<>
-							<Slide bottom cascade ssrFadeout>
+							<Fade>
 								{ data.allDatoCmsPost.edges.length > 0 ?
 								<div>
 									<Masonry className="blog__card grid-container" breakpointCols={breakpointColumnsObj} columnClassName="grid-container_column">
@@ -77,7 +78,7 @@ const Blog = () => {
 									</div> : null }
 								</div> 
 								: <div className="no-posts"><h2>{data.datoCmsBlog.noPostsMessage}</h2></div> }
-							</Slide>
+							</Fade>
 						</>
 					</div>
 				</section>
