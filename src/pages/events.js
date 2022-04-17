@@ -39,8 +39,8 @@ const Events = ({data}) => {
 								</div>
 								<div className="details">
 									<h2>{event.name}</h2>
-									<div className="location"><FiMapPin /><span className="venue-name">{event.venue.name}</span> - {event.venue.address_1 ? `${event.venue.address_1}, ` : null} {event.venue.city}, {event.venue.zip}</div>
-									<div className="time"><IoTimeOutline />{event.time}</div>
+									<div className="location"><div><FiMapPin /></div><span className="venue-name">{event.venue.name}</span> - {event.venue.address_1 ? `${event.venue.address_1}, ` : null} {event.venue.city}, {event.venue.zip}</div>
+									<div className="time"><div><IoTimeOutline /></div>{event.time}</div>
 									{ data.datoCmsEvent.readEventDetailsLabel ? <p className="details-label">{data.datoCmsEvent.readEventDetailsLabel}</p> : null }
 									<div className="description" dangerouslySetInnerHTML={{ __html: event.description }} />
 								</div>

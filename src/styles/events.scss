@@ -143,25 +143,42 @@
 
             .time, .location {
                 display: flex;
+                div {
+                    display: flex;
+
+                    svg {
+                        width: pxToEm(20);
+                    }
+                }
 
                 @include tablet {
-                    align-items: flex-end;
+                    // align-items: flex-end;
                 }
 
                 svg {
-                    margin-right: pxToEm(5);
+                    @include tablet {
+                        width: pxToEm(20);
+                    }
                 }
             }
 
             .time {
                 padding-top: pxToEm(5);
+                div {
+                    margin-right: pxToEm(3);
+                }
             }
 
-            .location .venue-name {
-                font-weight: 700;
-                font-size: inherit;
-                letter-spacing: inherit;
-                display: contents;
+            .location {
+                div {
+                    margin-right: pxToEm(5);
+                }
+                .venue-name {
+                    font-weight: 700;
+                    font-size: inherit;
+                    letter-spacing: inherit;
+                    display: contents;
+                }
             }
 
             .details-label {

@@ -37,7 +37,7 @@
 }
 
 .blog__section {
-	padding: pxToEm(20);
+	padding: pxToEm(20) pxToEm(20) pxToEm(40) pxToEm(20);
 
 	@include tablet {
 		padding: pxToEm(16) pxToEm(80) pxToEm(80) pxToEm(80);
