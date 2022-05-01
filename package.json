@@ -33,6 +33,7 @@
     "gatsby-remark-images-datocms": "^0.1.0",
     "gatsby-source-datocms": "^2.6.11",
     "gatsby-source-filesystem": "^3.2.0",
+    "gatsby-source-ical": "^1.1.0",
     "gatsby-source-meetup-events": "^1.0.2",
     "gatsby-transformer-remark": "^3.2.0",
     "gatsby-transformer-sharp": "^3.2.0",
